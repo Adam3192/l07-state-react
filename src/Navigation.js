@@ -1,8 +1,10 @@
-import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav'
+import Navbar from "react-bootstrap/Navbar"
+import Nav from "react-bootstrap/Nav"
 import Container from 'react-bootstrap/Container'
-import ThemeContext from './ThemeContext'
+import ThemeContext from "./ThemeContext"
 import ThemeToggle from './ThemeToggle'
+import UserContext from "./UserContext"
+import Image from 'react-bootstrap/Image'
 
 function Navigation(props) {
   return (
@@ -19,6 +21,11 @@ function Navigation(props) {
               </Nav>
             </Navbar.Collapse>
             <ThemeToggle />
+            <UserContext.Consumer>
+              {({ avatar }) => (
+                <Image src={avatar} className="ms-3" height="32" roundedCircle />
+              )}
+            </UserContext.Consumer>
           </Container>
         </Navbar>
       )}
@@ -27,3 +34,4 @@ function Navigation(props) {
 }
 
 export default Navigation
+
